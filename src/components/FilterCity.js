@@ -1,8 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { filterCities } from "../store/weather";
 
 const FilterCity = () => {
-    // const { cities } = useSelector(s => s.weather);
     const dispatch = useDispatch();
 
     const searchCity = (e) => {

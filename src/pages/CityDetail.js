@@ -1,22 +1,27 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import WeatherItem from "../components/WeatherItem";
 import WeatherMain from "../components/WeatherMain";
+import { get } from "../Services";
 
-const API_KEY = '9ee19cc8a28667dc10f9138fb5cb6017';
 const imgSource = `${process.env.PUBLIC_URL}/src/`;
 
 const CityDetail = () => {
-    const { id } = useParams();
-    const { cities } = useSelector(s => s.weather);
-    const [city] = cities.filter(c => c.id === +id);
     const [cityWeather, setCityWeather] = useState(null);
+    
+    const { weather: { cities }, apikey: { key } } = useSelector(s => s);
+    const { id } = useParams();
+    const navigate = useNavigate();
+    
+    const [city] = cities.filter(c => c.id === +id);
 
     useEffect(() => {
-        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${city.latitude}&lon=${city.longitude}&appid=${API_KEY}&lang=tr`)
-            .then(res => res.json())
-            .then(data => setCityWeather(data));
+        if (!key) navigate('/');
+        else {
+            get(`/data/2.5/forecast?lat=${city.latitude}&lon=${city.longitude}&appid=${key}&lang=tr`)
+                .then(data => setCityWeather(data));
+        }
     }, []);
 
     return (
