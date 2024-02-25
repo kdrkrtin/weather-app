@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import City from './City';
-import FilterCity from './FilterCity'
+import City from '../components/City';
+import FilterCity from '../components/FilterCity'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
