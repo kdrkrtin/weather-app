@@ -3,8 +3,7 @@ import { longDateFormat, tempFormat, timeFormat } from "..";
 
 const WeatherMain = ({ city, imgSource, mainData, data }) => {
     const [d] = data;
-    console.log(mainData.sunset);
-    console.log(new Date(mainData.sunrise*1000));
+
     return (
         <div className="current-weather">
             <div className="left">
