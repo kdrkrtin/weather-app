@@ -29,7 +29,7 @@ const CityDetail = () => {
             {
                 cityWeather && (
                     <>
-                        <WeatherMain city={city} imgSource={imgSource} data={cityWeather.list.splice(0,1)} />
+                        <WeatherMain city={city} imgSource={imgSource} mainData={cityWeather.city} data={cityWeather.list.splice(0,1)} />
                         <div className="weather-wrapper">
                             {
                                 cityWeather.list.map((i, index) => (

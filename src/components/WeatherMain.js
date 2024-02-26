@@ -1,11 +1,16 @@
-import { tempFormat } from "..";
+import { longDateFormat, tempFormat, timeFormat } from "..";
 
 
-const WeatherMain = ({ city, imgSource, data }) => {
+const WeatherMain = ({ city, imgSource, mainData, data }) => {
     const [d] = data;
+    console.log(mainData.sunset);
+    console.log(new Date(mainData.sunrise*1000));
     return (
         <div className="current-weather">
             <div className="left">
+                <div className="current-time city-name">
+                    <h3>{longDateFormat(d.dt_txt)} - {timeFormat(d.dt_txt)}</h3>
+                </div>
                 <div className="city-name">
                     <h3>{city.name} <span>({city.region})</span></h3>
                 </div>
@@ -25,11 +30,15 @@ const WeatherMain = ({ city, imgSource, data }) => {
                     </div>
                 </div>
             </div>
-            <div className="current-weather-icon">
+            <div className="current-weather-icon flex-wrap justify-end">
                 <div className="current-temp">
                     <span className="text-5xl">{tempFormat(d.main.temp)}°</span>
                 </div>
                 <img src={`${imgSource + d.weather[0].icon}.svg`} alt="weather icon" className="w-24" />
+                <div className="w-full text-right">
+                    <h3>Gün Doğumu: {timeFormat(mainData.sunrise * 1000)}</h3>
+                    <h3>Gün Batımı: {timeFormat(mainData.sunset * 1000)}</h3>
+                </div>
             </div>
         </div>
     )
