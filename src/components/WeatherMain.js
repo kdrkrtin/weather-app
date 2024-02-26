@@ -4,9 +4,9 @@ import { tempFormat } from "..";
 const WeatherMain = ({ city, imgSource, data }) => {
     const [d] = data;
     return (
-        <div className="current-weather border-solid border-2 rounded mt-10 p-10 w-2/3 mx-auto flex justify-between">
+        <div className="current-weather">
             <div className="left">
-                <div className="city-name text-sm mb-5 px-5 py-1 bg-yellow-400 inline-block rounded">
+                <div className="city-name">
                     <h3>{city.name} <span>({city.region})</span></h3>
                 </div>
                 <div className="current-weather-detail">
@@ -25,7 +25,7 @@ const WeatherMain = ({ city, imgSource, data }) => {
                     </div>
                 </div>
             </div>
-            <div className="current-weather-icon flex flex-row gap-5 items-center">
+            <div className="current-weather-icon">
                 <div className="current-temp">
                     <span className="text-5xl">{tempFormat(d.main.temp)}°</span>
                 </div>

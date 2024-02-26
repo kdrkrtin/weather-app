@@ -15,7 +15,7 @@ const Cities = () => {
     }, [])
 
     return (
-        <div className='bg-blue-400 pt-10'>
+        <div className='cities-wrapper'>
             <div className='container mx-auto'>
                 <FilterCity />
                 <div className='flex flex-wrap'>

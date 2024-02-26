@@ -9,7 +9,7 @@ const FilterCity = () => {
     }
 
     return (
-        <div className="w-1/3 mx-auto text-center mb-10 px-5">
+        <div className="filter-cities">
             <input type="text" className="w-full rounded p-2 " placeholder="Search City" onChange={searchCity} />
         </div>
     )

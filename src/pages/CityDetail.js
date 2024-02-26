@@ -30,7 +30,7 @@ const CityDetail = () => {
                 cityWeather && (
                     <>
                         <WeatherMain city={city} imgSource={imgSource} data={cityWeather.list.splice(0,1)} />
-                        <div className="other-weather-detail w-2/3 mx-auto mt-5 flex flex-row flex-wrap pb-10">
+                        <div className="weather-wrapper">
                             {
                                 cityWeather.list.map((i, index) => (
                                     <WeatherItem key={index} item={i} index={index} imgSource={imgSource} />

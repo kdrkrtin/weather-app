@@ -27,13 +27,13 @@ const Home = () => {
     }
 
     return (
-        <div className='bg-blue-400 pt-10 h-screen flex flex-col items-center justify-center'>
-            <h3 className="mb-6 text-2xl text-white">API Key giriniz!</h3>
+        <div className='home'>
+            <h3 className="home-title">API Key giriniz!</h3>
             <input type="text" placeholder='API Key' className="w-96 p-3 rounded" onChange={handleKey} />
             {
-                err && <span className="text-red-600 text-sm mt-3">Geçersiz bir API Key değeri girdiniz.</span>
+                err && <span className="key-inp">Geçersiz bir API Key değeri girdiniz.</span>
             }
-            <button className="w-96 mt-6 bg-blue-300 text-white rounded p-3" onClick={submitKey}>Giriş Yap</button>
+            <button className="login" onClick={submitKey}>Giriş Yap</button>
         </div>
     )
 }
