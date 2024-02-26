@@ -29,7 +29,7 @@ const WeatherMain = ({ city, imgSource, mainData, data }) => {
                     </div>
                 </div>
             </div>
-            <div className="current-weather-icon flex-wrap justify-end">
+            <div className="current-weather-icon">
                 <div className="current-temp">
                     <span className="text-5xl">{tempFormat(d.main.temp)}°</span>
                 </div>
